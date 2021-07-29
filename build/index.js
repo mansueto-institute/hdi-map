@@ -5,40 +5,103 @@ window.map = new mapboxgl.Map({
   container: "map", // container id
   style: "mapbox://styles/nmarchi0/ckqs7sp4c4m7y17q0get8doa8/draft",
   center: [39.82, -98.57],
-  zoom: 4,
+  zoom: 3,
   maxZoom: 17.5,
   minZoom: 3,
   hash: true,
-  // maxBounds: [
-  //   [18.91619, -171.791110603], //sw
-  //   [71.3577635769, -66.96466], //ne
-  // ]
+  maxBounds: [
+    [-176.791110603, 13.91619], //sw
+    [-61.96466, 76.3577635769], //ne
+  ]
 });
 
 // Fly to location buttons
-// function flyHandler(id, options) {
-//   var button = document.getElementById(id);
-//   if(!button) return;
-//   button.addEventListener('click', function() {
-//     map.flyTo({
-//       center: options.center,
-//       zoom: options.zoom || 10,
-//       bearing: options.bearing,
-//       pitch: options.pitch
-//     });
-//     if (options.speed) {
-//       setSpeed(options.speed);
-//     }
-//   });
-// }
+function flyHandler(id, options) {
+  var button = document.getElementById(id);
+  if(!button) return;
+  button.addEventListener('click', function() {
+    map.flyTo({
+      center: options.center,
+      zoom: options.zoom || 10,
+      bearing: options.bearing,
+      pitch: options.pitch
+    });
+    if (options.speed) {
+      setSpeed(options.speed);
+    }
+  });
+}
 
-// flyHandler('malawi', {
-//   center: [34.99562,-15.81003],
-//   zoom: 12.3,
-//   bearing: 0,
-//   pitch: 0,
-//   speed: .2
-// });
+flyHandler('nyc', {
+  center: [-73.820,40.740],
+  zoom: 10.2,
+  bearing: 0,
+  pitch: 0,
+  speed: .2
+});
+flyHandler('la', {
+  center: [-118.051,33.947],
+  zoom: 9.39,
+  bearing: 0,
+  pitch: 0,
+  speed: .2
+});
+flyHandler('chi', {
+  center: [-87.699,41.909],
+  zoom: 10.60,
+  bearing: -90,
+  pitch: 0,
+  speed: .2
+});
+flyHandler('hou', {
+  center: [-95.435,29.848],
+  zoom: 9.33,
+  bearing: 0,
+  pitch: 0,
+  speed: .2
+});
+flyHandler('phx', {
+  center: [-111.963,33.455],
+  zoom: 9.68,
+  bearing: 0,
+  pitch: 0,
+  speed: .2
+});
+flyHandler('phi', {
+  center: [-75.146,39.968],
+  zoom: 10.81,
+  bearing: 0,
+  pitch: 0,
+  speed: .2
+});
+flyHandler('san', {
+  center: [-98.442,29.442],
+  zoom: 10.20,
+  bearing: 0,
+  pitch: 0,
+  speed: .2
+});
+flyHandler('sd', {
+  center: [-117.160,32.719],
+  zoom: 10.42,
+  bearing: 0,
+  pitch: 0,
+  speed: .2
+});
+flyHandler('dal', {
+  center: [-97.003,32.808],
+  zoom: 9.76,
+  bearing: 0,
+  pitch: 0,
+  speed: .2
+});
+flyHandler('sfba', {
+  center: [-122.054,37.694],
+  zoom: 9.03,
+  bearing: 0,
+  pitch: 0,
+  speed: .2
+});
 
 // Interactive popups
 // var title = document.getElementById('location-title');

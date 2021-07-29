@@ -54,7 +54,7 @@
     src: url('extra/gotham/GothamBold.otf') format('opentype');
     font-weight: 700;
   }
-  h2 { color:#222B30; text-shadow: 1px 1px white;}
+  h2 { color:#36454F; font-size: 30px;}
   h3 { color:#222B30;}
   p { color:#222B30;}
   @media only screen and (max-height: 650px) {
@@ -89,9 +89,9 @@
   .text-overlay {
     position: absolute;
     top: 2;
-    width: 254px;
-    height: 220px;
-    padding: 5px;
+    width: 295px;
+    /* height: 220px; */
+    padding: 7px;
     font-family: GothamMedium;
     font-size: 13px;
     line-height: 13px;
@@ -165,10 +165,11 @@
     text-align:center;
     font-size:9px;
     color:#808080;
+    margin-top: 3px;
     }
   .legend span{
       width: 100%;
-      background: linear-gradient(to right, #fcfdbf, #fc8961, #b73779, #51127c, #000004);
+      background: linear-gradient(to left, #fcfdbf, #fc8961, #b73779, #51127c, #000004);
   }
 </style>
 <!-- Google Analytics tag -->
@@ -185,7 +186,7 @@ gtag('config', 'G-5XWDNG9JPD');
   <div id="sidebar" class="pin-topleft z1">
     <!-- Sidebar title-->
     <div class="sidebar flex-scroll scroll-styled pad2">
-      <h2 class="hide-mobile" style="padding-bottom:0px;margin-bottom:0px;font-family:GothamBold;">Mapping Human Development</h2>
+      <!-- <h2 class="hide-mobile" style="padding-bottom:0px;margin-bottom:0px;font-family:GothamBold;">Mapping Human Development</h2> -->
       <h2 class="show-mobile" style="padding-bottom:0px;margin-bottom:0px;font-family:GothamBold;">Mapping<br />HDI</h2>
       <!-- Explainer / video buttons-->
       <!-- <div id="play-interactive" class="button fill-red dark hide-mobile hide-vert" style="margin-top:0px;">
@@ -197,26 +198,55 @@ gtag('config', 'G-5XWDNG9JPD');
         </a>
       </div> -->
       <!-- Text popups-->
-      <!-- <div class='text-overlay hide-mobile hide-vert'>
-        <p id='location-title' style="font-family:GothamBold; font-size:18px; margin-top:5px; margin-bottom:8px;"></p>
-        <p id='location-description' style="white-space: break-spaces; font-family:GothamMedium;line-height:15px;font-size:12px;"></p>
+      <div class='text-overlay hide-mobile hide-vert'>
+        <p id='location-title' style="font-family:GothamBold; font-size:18px;line-height:17px;margin-top:5px; margin-bottom:8px;">Mapping Human Development</p>
+        <p id='location-description' style="font-family:GothamMedium;line-height:15px;font-size:12px;">
+          Human development index (HDI) is a statistic developed by the UN that composites life expectancy, education, and income. 
+        </p>
       </div>
-      <div class="hide-mobile hide-vert space-bottom0" style="padding-top:230px;"></div> -->
+      <div class="hide-mobile hide-vert space-bottom0" style="padding-top:100px;"></div>
       <!-- Flyover buttons-->
-      <!-- <div class="projects">
+      <div class="projects">
         <h3 class="space-bottom0" style="padding-top:0px;margin-bottom:0px;margin:3px;font-family:GothamBold;">Explore a city</h3>
-        <div id="sierra-leone" class="button fill-navy-dark dark" style="margin-top:2px;">
-          <span> Freetown, Sierra Leone</span>
+        <div id="nyc" class="button fill-navy-dark dark" style="margin-top:2px;">
+          <span>New York City</span>
         </div>
         <br />
-        <div id="liberia" class="button fill-navy-dark dark" style="margin-top:2px;">
-          <span> Monrovia, Liberia</span>
+        <div id="la" class="button fill-navy-dark dark" style="margin-top:2px;">
+          <span>Los Angeles</span>
         </div>
         <br />
-        <div id="kenya" class="button fill-navy-dark dark" style="margin-top:2px;">
-          <span> Nairobi, Kenya</span>
-        </div> -->
+        <div id="chi" class="button fill-navy-dark dark" style="margin-top:2px;">
+          <span>Chicago</span>
+        </div>
         <br />
+        <div id="hou" class="button fill-navy-dark dark" style="margin-top:2px;">
+          <span>Houston</span>
+        </div>
+        <br />
+        <div id="phx" class="button fill-navy-dark dark" style="margin-top:2px;">
+          <span>Phoenix</span>
+        </div>
+        <br />
+        <div id="phi" class="button fill-navy-dark dark" style="margin-top:2px;">
+          <span>Philadelphia</span>
+        </div>
+        <br />
+        <div id="san" class="button fill-navy-dark dark" style="margin-top:2px;">
+          <span>San Antonio</span>
+        </div>
+        <br />
+        <div id="sd" class="button fill-navy-dark dark" style="margin-top:2px;">
+          <span>San Diego</span>
+        </div>
+        <br />
+        <div id="dal" class="button fill-navy-dark dark" style="margin-top:2px;">
+          <span>Dallas-Fort Worth</span>
+        </div>
+        <br />
+        <div id="sfba" class="button fill-navy-dark dark" style="margin-top:2px;">
+          <span>San Francisco Bay Area</span>
+        </div>
       </div>
     </div>
   </div>
@@ -251,16 +281,16 @@ gtag('config', 'G-5XWDNG9JPD');
 </div> -->
 
 <!-- Branding / logos -->
-<a target='_blank' href='https://urban.uchicago.edu'>
+<a target='_blank' href='https://miurban.uchicago.edu'>
   <div class ='pin-bottomleft hide-mobile' >
-    <img style="margin-top:11px; margin-bottom:7px; margin-left:20px;" src="extra/images/uchicago.svg" width="180px" />
+    <img style="margin-top:11px; margin-bottom:7px; margin-left:20px;" src="extra/images/mansueto.png" width="280px" />
   </div>
 </a>
 <div class ='pin-bottomleft hide-mobile' >
-  <a target='_blank' href='https://miurban.uchicago.edu'>
+  <!-- <a target='_blank' href='https://miurban.uchicago.edu'>
     <h3  style="margin-bottom:10px; margin-left:215px; font-size:17px; font-family:GothamBold; line-height:13px;color:#800000;">Mansueto Institute for Urban Innovation</h3>  </a>
-    <a target='_blank' href='https://rcc.uchicago.edu'>
-      <h3  style="margin-bottom:9px; margin-left:215px; font-size:17px; font-family:GothamBold; line-height:13px;color:#800000;">Research Computing Center</h3> </a>
+     <a target='_blank' href='https://rcc.uchicago.edu'>
+      <h3  style="margin-bottom:9px; margin-left:215px; font-size:17px; font-family:GothamBold; line-height:13px;color:#800000;">Research Computing Center</h3> </a> -->
     </div>
 
     <!-- Copyright -->
@@ -281,6 +311,7 @@ gtag('config', 'G-5XWDNG9JPD');
 
     <!-- Legend -->
     <div class='legend-overlay legend' id='legend'>
+      Human Development Index <br>
       <span></span>
       <label>0.44</label>
       <label>0.61</label>
