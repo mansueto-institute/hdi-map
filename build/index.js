@@ -416,7 +416,7 @@ const hdiCountries = [["Norway", 0.957, "NO"],
 
 const hdiToComp = hdi => {
   comp = hdiCountries.sort((a,b) => Math.abs(a[1]-hdi) - Math.abs(b[1]-hdi))[0];
-  return `<img src='flags/${comp[2].toLowerCase()}.svg'> <i>${comp[0]}</i> <b>(.${Math.round(comp[1]*100)})</b>`
+  return `<img src='https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/${comp[2].toLowerCase()}.svg'> <i>${comp[0]}</i> <b>(.${Math.round(comp[1]*100)})</b>`
 }
 
 const hdiToKey = hdi => {
