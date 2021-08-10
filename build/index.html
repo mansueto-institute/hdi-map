@@ -36,6 +36,7 @@
   <!--<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.0/mapbox-gl.css' rel='stylesheet' />-->
   <link rel="canonical" href="https://mansueto-institute.github.io/" >
   <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.0/mapbox-gl.js'></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
   <style>
   body { margin:0; padding:0; }
   #map { position:absolute; top:0; bottom:0; width:100%; }
@@ -171,6 +172,65 @@
       width: 100%;
       background: linear-gradient(to left, #fcfdbf, #fc8961, #b73779, #51127c, #000004);
   }
+  legend{
+    width: 185px;
+    height: 82px;
+    background-color: rgba(255,255,255,0.6);
+    border: 1.5px solid white;
+    position: absolute;
+    user-select: none;
+    font-family: GothamLight;
+    line-height: 1.15;
+    font-size: 12.5px;
+    padding: 4px;
+  }
+  legend.hide{
+    display: none;
+  }
+  body{
+    overflow: hidden;
+  }
+  legend table{
+    width: 100%;
+  }
+  legend td, legend th{
+    width: 20%;
+    border: none;
+    text-align: center;
+    vertical-align: baseline;
+    padding: 0px;
+  }
+  legend th{
+    font-size: 14.5px;
+    font-family: GothamMedium;
+  }
+  legend td{
+    font-family: GothamLight;
+  }
+  legend th:first-child{
+    font-size: 24px;
+    width: 30%;
+    font-family: GothamBold;
+    color: white;
+    text-shadow: -1px -1px black,
+                 -1px 1px black,
+                 1px -1px black,
+                 1px 1px black;
+  }
+  legend tr:nth-child(3) td, legend tr:nth-child(4) td{
+    padding-top: 3px;
+    font-size: 10.5px;
+  }
+  legend td b{
+    font-family:  monospace;
+  }
+  legend td i{
+    font-family:  GothamMedium;
+  }
+  legend img{
+    height: 12px;
+    padding: 0 1px;
+  }
 </style>
 <!-- Google Analytics tag -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5XWDNG9JPD"></script>
@@ -186,6 +246,7 @@ gtag('config', 'G-5XWDNG9JPD');
   <div id="sidebar" class="pin-topleft z1">
     <!-- Sidebar title-->
     <div class="sidebar flex-scroll scroll-styled pad2">
+      <legend id='tooltip'></legend>
       <!-- <h2 class="hide-mobile" style="padding-bottom:0px;margin-bottom:0px;font-family:GothamBold;">Mapping Human Development</h2> -->
       <h2 class="show-mobile" style="padding-bottom:0px;margin-bottom:0px;font-family:GothamBold;">Mapping<br />HDI</h2>
       <!-- Explainer / video buttons-->
@@ -326,5 +387,6 @@ gtag('config', 'G-5XWDNG9JPD');
     <script src="/__/firebase/6.6.2/firebase-app.js"></script>
     <!-- SDKs for Firebase products -->
     <script src="/__/firebase/init.js"></script>
+
   </body>
   </html>
