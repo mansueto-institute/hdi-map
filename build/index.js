@@ -31,72 +31,212 @@ function flyHandler(id, options) {
   });
 }
 
-flyHandler('nyc', {
-  center: [-73.820,40.740],
-  zoom: 10.2,
+flyHandler('newyorkcity', {
+  center: [-73.9384,40.66392],
+  zoom: 9.25,
   bearing: 0,
   pitch: 0,
   speed: .2
 });
-flyHandler('la', {
-  center: [-118.051,33.947],
-  zoom: 9.39,
+flyHandler('losangeles', {
+  center: [-118.412,34.10698],
+  zoom: 9.25,
   bearing: 0,
   pitch: 0,
   speed: .2
 });
-flyHandler('chi', {
-  center: [-87.699,41.909],
-  zoom: 10.60,
-  bearing: -90,
-  pitch: 0,
-  speed: .2
-});
-flyHandler('hou', {
-  center: [-95.435,29.848],
-  zoom: 9.33,
+flyHandler('chicago', {
+  center: [-87.6847,41.83692],
+  zoom: 9.25,
   bearing: 0,
   pitch: 0,
   speed: .2
 });
-flyHandler('phx', {
-  center: [-111.963,33.455],
-  zoom: 9.68,
+flyHandler('houston', {
+  center: [-95.3885,29.78602],
+  zoom: 9.25,
   bearing: 0,
   pitch: 0,
   speed: .2
 });
-flyHandler('phi', {
-  center: [-75.146,39.968],
-  zoom: 10.81,
+flyHandler('phoenix', {
+  center: [-112.089,33.57223],
+  zoom: 9.25,
   bearing: 0,
   pitch: 0,
   speed: .2
 });
-flyHandler('san', {
-  center: [-98.442,29.442],
-  zoom: 10.20,
+flyHandler('philadelphia', {
+  center: [-75.1339,40.00764],
+  zoom: 9.25,
   bearing: 0,
   pitch: 0,
   speed: .2
 });
-flyHandler('sd', {
-  center: [-117.160,32.719],
-  zoom: 10.42,
+flyHandler('sanantonio', {
+  center: [-98.5253,29.4658],
+  zoom: 9.25,
   bearing: 0,
   pitch: 0,
   speed: .2
 });
-flyHandler('dal', {
-  center: [-97.003,32.808],
-  zoom: 9.76,
+flyHandler('sandiego', {
+  center: [-117.133,32.81682],
+  zoom: 9.25,
   bearing: 0,
   pitch: 0,
   speed: .2
 });
-flyHandler('sfba', {
-  center: [-122.054,37.694],
-  zoom: 9.03,
+flyHandler('dallas', {
+  center: [-96.7662,32.79359],
+  zoom: 9.25,
+  bearing: 0,
+  pitch: 0,
+  speed: .2
+});
+flyHandler('sanjose', {
+  center: [-121.849,37.30212],
+  zoom: 9.25,
+  bearing: 0,
+  pitch: 0,
+  speed: .2
+});
+flyHandler('austin', {
+  center: [-97.7522,30.3005],
+  zoom: 9.25,
+  bearing: 0,
+  pitch: 0,
+  speed: .2
+});
+flyHandler('jacksonville', {
+  center: [-81.6602,30.33699],
+  zoom: 9.25,
+  bearing: 0,
+  pitch: 0,
+  speed: .2
+});
+flyHandler('fortworth', {
+  center: [-97.3473,32.78115],
+  zoom: 9.25,
+  bearing: 0,
+  pitch: 0,
+  speed: .2
+});
+flyHandler('columbus', {
+  center: [-82.985,39.98621],
+  zoom: 9.25,
+  bearing: 0,
+  pitch: 0,
+  speed: .2
+});
+flyHandler('sanfrancisco', {
+  center: [-122.694,37.75972],
+  zoom: 9.25,
+  bearing: 0,
+  pitch: 0,
+  speed: .2
+});
+flyHandler('charlotte', {
+  center: [-80.8304,35.20798],
+  zoom: 9.25,
+  bearing: 0,
+  pitch: 0,
+  speed: .2
+});
+flyHandler('indianapolis', {
+  center: [-86.1458,39.77712],
+  zoom: 9.25,
+  bearing: 0,
+  pitch: 0,
+  speed: .2
+});
+flyHandler('seattle', {
+  center: [-122.351,47.62],
+  zoom: 9.25,
+  bearing: 0,
+  pitch: 0,
+  speed: .2
+});
+flyHandler('denver', {
+  center: [-104.876,39.76216],
+  zoom: 9.25,
+  bearing: 0,
+  pitch: 0,
+  speed: .2
+});
+flyHandler('washington', {
+  center: [-77.0163,38.90477],
+  zoom: 9.25,
+  bearing: 0,
+  pitch: 0,
+  speed: .2
+});
+flyHandler('boston', {
+  center: [-71.0164,42.33223],
+  zoom: 9.25,
+  bearing: 0,
+  pitch: 0,
+  speed: .2
+});
+flyHandler('elpaso', {
+  center: [-106.431,31.84793],
+  zoom: 9.25,
+  bearing: 0,
+  pitch: 0,
+  speed: .2
+});
+flyHandler('detroit', {
+  center: [-83.1024,42.38339],
+  zoom: 9.25,
+  bearing: 0,
+  pitch: 0,
+  speed: .2
+});
+flyHandler('nashville', {
+  center: [-86.7843,36.17146],
+  zoom: 9.25,
+  bearing: 0,
+  pitch: 0,
+  speed: .2
+});
+flyHandler('portland', {
+  center: [-122.65,45.53715],
+  zoom: 9.25,
+  bearing: 0,
+  pitch: 0,
+  speed: .2
+});
+flyHandler('memphis', {
+  center: [-89.9774,35.10465],
+  zoom: 9.25,
+  bearing: 0,
+  pitch: 0,
+  speed: .2
+});
+flyHandler('oklahomacity', {
+  center: [-97.5137,35.46763],
+  zoom: 9.25,
+  bearing: 0,
+  pitch: 0,
+  speed: .2
+});
+flyHandler('lasvegas', {
+  center: [-115.265,36.23335],
+  zoom: 9.25,
+  bearing: 0,
+  pitch: 0,
+  speed: .2
+});
+flyHandler('louisville/jeffersoncounty', {
+  center: [-85.6485,38.16631],
+  zoom: 9.25,
+  bearing: 0,
+  pitch: 0,
+  speed: .2
+});
+flyHandler('baltimore', {
+  center: [-76.6106,39.30098],
+  zoom: 9.25,
   bearing: 0,
   pitch: 0,
   speed: .2
@@ -194,7 +334,7 @@ map.on('mousemove', 'us-hdi', function (e) {
     <tr>
       <td>HDI</td>
       <td>Inc.</td>
-      <td>LXP</td>
+      <td>Life Exp.</td>
       <td>Edu.</td>
     </tr>
     <tr>
@@ -225,12 +365,14 @@ map.on('mouseleave', 'us-hdi', function () {
 map.on('mouseleave', 'water', function () {
   
   tooltip.classList.remove('hide');
+  map.getCanvas().style.cursor = 'crosshair'
   
 });
    
 map.on('mouseenter', 'water', function () {
   
   tooltip.classList.add('hide');
+  map.getCanvas().style.cursor = '';
   
 });
 

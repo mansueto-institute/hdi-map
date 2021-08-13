@@ -174,7 +174,7 @@
   }
   legend{
     width: 185px;
-    height: 82px;
+    height: 92px;
     background-color: rgba(255,255,255,0.6);
     border: 1.5px solid white;
     position: absolute;
@@ -199,6 +199,9 @@
     text-align: center;
     vertical-align: baseline;
     padding: 0px;
+  }
+  legend tr:nth-child(2) td{
+    font-size: 10.5px;
   }
   legend th{
     font-size: 14.5px;
@@ -246,7 +249,7 @@ gtag('config', 'G-5XWDNG9JPD');
   <div id="sidebar" class="pin-topleft z1">
     <!-- Sidebar title-->
     <div class="sidebar flex-scroll scroll-styled pad2">
-      <legend id='tooltip'></legend>
+      <legend id='tooltip' class='hide-vert hide-horiz hide-flip'></legend>
       <!-- <h2 class="hide-mobile" style="padding-bottom:0px;margin-bottom:0px;font-family:GothamBold;">Mapping Human Development</h2> -->
       <h2 class="show-mobile" style="padding-bottom:0px;margin-bottom:0px;font-family:GothamBold;">Mapping<br />HDI</h2>
       <!-- Explainer / video buttons-->
@@ -267,47 +270,28 @@ gtag('config', 'G-5XWDNG9JPD');
       </div>
       <div class="hide-mobile hide-vert space-bottom0" style="padding-top:100px;"></div>
       <!-- Flyover buttons-->
-      <div class="projects">
+      <div class="projects hide-vert hide-horiz hide-flip">
         <h3 class="space-bottom0" style="padding-top:0px;margin-bottom:0px;margin:3px;font-family:GothamBold;">Explore a city</h3>
-        <div id="nyc" class="button fill-navy-dark dark" style="margin-top:2px;">
-          <span>New York City</span>
-        </div>
-        <br />
-        <div id="la" class="button fill-navy-dark dark" style="margin-top:2px;">
-          <span>Los Angeles</span>
-        </div>
-        <br />
-        <div id="chi" class="button fill-navy-dark dark" style="margin-top:2px;">
-          <span>Chicago</span>
-        </div>
-        <br />
-        <div id="hou" class="button fill-navy-dark dark" style="margin-top:2px;">
-          <span>Houston</span>
-        </div>
-        <br />
-        <div id="phx" class="button fill-navy-dark dark" style="margin-top:2px;">
-          <span>Phoenix</span>
-        </div>
-        <br />
-        <div id="phi" class="button fill-navy-dark dark" style="margin-top:2px;">
-          <span>Philadelphia</span>
-        </div>
-        <br />
-        <div id="san" class="button fill-navy-dark dark" style="margin-top:2px;">
-          <span>San Antonio</span>
-        </div>
-        <br />
-        <div id="sd" class="button fill-navy-dark dark" style="margin-top:2px;">
-          <span>San Diego</span>
-        </div>
-        <br />
-        <div id="dal" class="button fill-navy-dark dark" style="margin-top:2px;">
-          <span>Dallas-Fort Worth</span>
-        </div>
-        <br />
-        <div id="sfba" class="button fill-navy-dark dark" style="margin-top:2px;">
-          <span>San Francisco Bay Area</span>
-        </div>
+        <div id="newyorkcity" class="button fill-navy-dark dark" style="margin-top:2px;"><span>New York City</span></div><br />
+        <div id="losangeles" class="button fill-navy-dark dark" style="margin-top:2px;"><span>Los Angeles</span></div><br />
+        <div id="chicago" class="button fill-navy-dark dark" style="margin-top:2px;"><span>Chicago</span></div><br />
+        <div id="houston" class="button fill-navy-dark dark" style="margin-top:2px;"><span>Houston</span></div><br />
+        <div id="phoenix" class="button fill-navy-dark dark" style="margin-top:2px;"><span>Phoenix</span></div><br />
+        <div id="philadelphia" class="button fill-navy-dark dark" style="margin-top:2px;"><span>Philadelphia</span></div><br />
+        <div id="sanantonio" class="button fill-navy-dark dark" style="margin-top:2px;"><span>San Antonio</span></div><br />
+        <div id="sandiego" class="button fill-navy-dark dark" style="margin-top:2px;"><span>San Diego</span></div><br />
+        <div id="dallas" class="button fill-navy-dark dark" style="margin-top:2px;"><span>Dallas</span></div><br />
+        <div id="sanjose" class="button fill-navy-dark dark" style="margin-top:2px;"><span>San Jose</span></div><br />
+        <div id="austin" class="button fill-navy-dark dark" style="margin-top:2px;"><span>Austin</span></div><br />
+        <div id="jacksonville" class="button fill-navy-dark dark" style="margin-top:2px;"><span>Jacksonville</span></div><br />
+        <div id="fortworth" class="button fill-navy-dark dark" style="margin-top:2px;"><span>Fort Worth</span></div><br />
+        <div id="columbus" class="button fill-navy-dark dark" style="margin-top:2px;"><span>Columbus</span></div><br />
+        <div id="sanfrancisco" class="button fill-navy-dark dark" style="margin-top:2px;"><span>San Francisco</span></div><br />
+        <div id="charlotte" class="button fill-navy-dark dark" style="margin-top:2px;"><span>Charlotte</span></div><br />
+        <div id="indianapolis" class="button fill-navy-dark dark" style="margin-top:2px;"><span>Indianapolis</span></div><br />
+        <div id="seattle" class="button fill-navy-dark dark" style="margin-top:2px;"><span>Seattle</span></div><br />
+        <div id="denver" class="button fill-navy-dark dark" style="margin-top:2px;"><span>Denver</span></div><br />
+        <div id="washington" class="button fill-navy-dark dark" style="margin-top:2px;"><span>Washington</span></div><br />
       </div>
     </div>
   </div>
@@ -384,9 +368,9 @@ gtag('config', 'G-5XWDNG9JPD');
     <!-- Javascript -->
     <script src='index.js'></script>
     <!-- Core Firebase JS SDK (must be listed first) -->
-    <script src="/__/firebase/6.6.2/firebase-app.js"></script>
+    <!-- <script src="/__/firebase/6.6.2/firebase-app.js"></script> -->
     <!-- SDKs for Firebase products -->
-    <script src="/__/firebase/init.js"></script>
+    <!-- <script src="/__/firebase/init.js"></script> -->
 
   </body>
   </html>
