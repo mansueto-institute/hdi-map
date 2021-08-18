@@ -37,6 +37,11 @@
   <link rel="canonical" href="https://mansueto-institute.github.io/" >
   <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.0/mapbox-gl.js'></script>
   <script src="https://d3js.org/d3.v5.min.js"></script>
+  <!-- Load the `mapbox-gl-geocoder` plugin. -->
+<!-- <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css" type="text/css"> -->
+
+
   <style>
   body { margin:0; padding:0; }
   #map { position:absolute; top:0; bottom:0; width:100%; }
@@ -368,9 +373,9 @@ gtag('config', 'G-5XWDNG9JPD');
     <!-- Javascript -->
     <script src='index.js'></script>
     <!-- Core Firebase JS SDK (must be listed first) -->
-    <!-- <script src="/__/firebase/6.6.2/firebase-app.js"></script> -->
+    <script src="/__/firebase/6.6.2/firebase-app.js"></script>
     <!-- SDKs for Firebase products -->
-    <!-- <script src="/__/firebase/init.js"></script> -->
+    <script src="/__/firebase/init.js"></script>
 
   </body>
   </html>

@@ -14,6 +14,21 @@ window.map = new mapboxgl.Map({
   ]
 });
 
+// map.addControl(
+//   new MapboxGeocoder({
+//     accessToken: mapboxgl.accessToken,
+//     mapboxgl: mapboxgl
+//   }), 'top-right'
+// );
+
+// map.addControl(new mapboxgl.GeolocateControl({
+//   positionOptions: {
+//   enableHighAccuracy: true
+//   },
+//   trackUserLocation: true,
+//   showUserHeading: true
+//   }));
+
 // Fly to location buttons
 function flyHandler(id, options) {
   var button = document.getElementById(id);
