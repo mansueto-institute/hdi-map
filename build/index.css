@@ -1,0 +1,270 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+#map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+@font-face {
+    font-family: "GothamLight";
+    src: url("extra/gotham/GothamLight.otf") format("opentype");
+    font-weight: 300;
+}
+@font-face {
+    font-family: "GothamMedium";
+    src: url("extra/gotham/GothamMedium.otf") format("opentype");
+    font-weight: 400;
+}
+@font-face {
+    font-family: "GothamBold";
+    src: url("extra/gotham/GothamBold.otf") format("opentype");
+    font-weight: 700;
+}
+h2 {
+    color: #36454f;
+    font-size: 30px;
+}
+h3,p {
+    color: #222b30;
+}
+@media only screen and (max-height: 650px) {
+    .hide-vert {
+        display: none !important;
+    }
+}
+@media only screen and (max-width: 895px) {
+    .hide-horiz {
+        display: none !important;
+    }
+}
+@media only screen and (max-height: 410px) {
+    .hide-flip {
+        display: none !important;
+    }
+}
+.mapbox-wordmark {
+    position: absolute;
+    display: block;
+    height: 20px;
+    width: 65px;
+    bottom: 0;
+    right: 0;
+    text-indent: -9999px;
+    z-index: 99999;
+    overflow: hidden;
+    background-image: url(extra/images/mapbox.svg);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 65px 13px;
+}
+.mapbox-attribution-container {
+    font-size: 10px;
+    position: absolute;
+    margin: 0 10 5;
+}
+.text-overlay {
+    position: absolute;
+    top: 2;
+    width: 295px;
+    padding: 7px;
+    font-family: GothamMedium;
+    font-size: 13px;
+    line-height: 13px;
+    margin-top: 10px;
+    margin-left: 0px;
+    font-weight: normal;
+    overflow: auto;
+    border-radius: 3px;
+    background-color: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+.legend-overlay {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.8);
+    margin-right: 20px;
+    font-family: GothamMedium;
+    font-weight: normal;
+    font-size: 11px;
+    overflow: auto;
+    border-radius: 3px;
+}
+#location-button,
+#video-button {
+    display: inline;
+}
+.location-button.is-visible {
+    display: block;
+    position: absolute;
+    padding: 5px;
+}
+#legend {
+    padding: 6px 9px 6px 9px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    line-height: 13px;
+    margin-bottom: 20px;
+}
+.legend-key {
+    display: inline-block;
+    border-radius: 20%;
+    width: 10px;
+    height: 10px;
+    margin-right: 5px;
+}
+.button {
+    font-family: GothamBold;
+    vertical-align: middle;
+    line-height: 15px;
+    margin: 2px;
+    padding: 3px 6px 3px 6px;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+}
+.button.active,
+.button:hover {
+    background-color: #0571b0;
+}
+.sidebar {
+    width: 100%;
+    background-color: transparent;
+}
+.legend label,
+.legend span {
+    display: block;
+    float: left;
+    height: 15px;
+    width: 20%;
+    padding: 2px;
+    text-align: center;
+    font-size: 9px;
+    color: #808080;
+    margin-top: 3px;
+}
+.legend span {
+width: 100%;
+background: linear-gradient(
+    to left,
+    #fcfdbf,
+    #fc8961,
+    #b73779,
+    #51127c,
+    #000004
+);
+}
+legend {
+    width: 185px;
+    height: 92px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 1.5px solid white;
+    position: absolute;
+    user-select: none;
+    font-family: GothamLight;
+    line-height: 1.15;
+    font-size: 12.5px;
+    padding: 4px;
+}
+legend.hide {
+    display: none;
+}
+body {
+    overflow: hidden;
+}
+legend table {
+    width: 100%;
+}
+legend td,
+legend th {
+    width: 20%;
+    border: none;
+    text-align: center;
+    vertical-align: baseline;
+    padding: 0px;
+}
+legend tr:nth-child(2) td {
+    font-size: 10.5px;
+}
+legend th {
+    font-size: 14.5px;
+    font-family: GothamMedium;
+}
+legend td {
+    font-family: GothamLight;
+}
+legend th:first-child {
+    font-size: 24px;
+    width: 30%;
+    font-family: GothamBold;
+    color: white;
+    text-shadow: -0.5px -0.5px white, 
+        -0.5px 0.5px white, 
+        0.5px -0.5px white,
+        0.5px 0.5px white;
+}
+legend tr:nth-child(3) td,
+legend tr:nth-child(4) td {
+    padding-top: 3px;
+    font-size: 10.5px;
+}
+legend td b {
+    font-family: monospace;
+}
+legend td i {
+    font-family: GothamMedium;
+}
+legend img {
+    height: 12px;
+    padding: 0 1px;
+}
+/* replacing inline styles   */
+#location-title {
+    font-family: GothamBold;
+    font-size: 18px;
+    line-height: 17px;
+    margin-top: 5px;
+    margin-bottom: 8px;
+}
+#location-description {
+    font-family: GothamMedium;
+    line-height: 15px;
+    font-size: 12px;
+}
+h3.space-bottom0 {
+    padding-top: 0px;
+    margin-bottom: 0px;
+    margin: 3px;
+    font-family: GothamBold;
+}
+div.projects div.button {
+    margin-top: 2px;
+}
+#mansueto-logo {
+    margin-top: 11px;
+    margin-bottom: 7px;
+    margin-left: 20px;
+}
+div.hide-mobile.mapbox-attribution-container {
+    top: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.65);
+    padding: 0 2px 1px 2px;
+}
+div.show-mobile.mapbox-attribution-container {
+    bottom: 0;
+    right: 0;
+}
+div.legend {
+    width: 212px;
+    text-align: center;
+}
+.bar{
+    opacity: 0.5;
+    transition: 50ms;
+}
+.bar.selected{
+    opacity: 1;
+}
