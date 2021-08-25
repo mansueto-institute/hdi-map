@@ -3,379 +3,100 @@
 <head>
   <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
   <meta charset=utf-8 />
-
-  <!-- SEO Meta Tags -->
-  <!-- <title>Million Neighborhoods Initiative</title>
-  <meta name="description" content="Million Neighborhoods is an initiative of the Mansueto Institute for Urban Innovation at the University of Chicago to provide frameworks, tools, and data for mapping, planning, and coordinating solutions towards fulfilling the UN’s Agenda 2030 for Global Sustainable Development.">
-  <meta name="keywords" content="slum,informal settlement,map,million neighborhoods,reblock,global,world,earth,africa,university of chicago,uchicago,mansueto,miurban,data,street,road,access,infrastructure,urban,science,algorithms,bettencourt,marchio,soman,nederhood,sdg,sustainable,poverty,development"> -->
-
-  <!-- Google / Search Engine Tags -->
-  <!-- <meta itemprop="name" content="Global Map Helps Identify Urban Slums">
-  <meta itemprop="description" content="The Million Neighborhoods is an initiative of the Mansueto Institute for Urban Innovation at the University of Chicago to provide frameworks, tools, and data for mapping, planning, and coordinating solutions towards fulfilling the UN’s Agenda 2030 for Global Sustainable Development.">
-  <meta itemprop="image" content="https://millionneighborhoods.org/extra/images/hi-res.png"> -->
-
-  <!-- Facebook Meta Tags -->
-  <!-- <meta property="og:url" content="https://millionneighborhoods.org">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Global Map Helps Identify Urban Slums">
-  <meta property="og:description" content="Urban researchers harness algorithms to map slums — and improve access to much-needed public services." />
-  <meta property="og:image" content="https://millionneighborhoods.org/extra/images/hi-res.png" /> -->
-
-  <!-- Twitter Meta Tags -->
-  <!-- <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@miurbanchicago">
-  <meta name="twitter:creator" content="@miurbanchicago">
-  <meta name="twitter:title" content="Global Map Helps Identify Urban Slums" />
-  <meta name="twitter:description" content="Urban researchers harness algorithms to map slums — and improve access to much-needed public services." />
-  <meta name="twitter:url" content="https://millionneighborhoods.org" />
-  <meta name="twitter:image" content="https://millionneighborhoods.org/extra/images/hi-res.png"> -->
+  <title>Community HDI | Human Development of US Communities</title>
 
   <!-- CSS / JS libraries -->
   <link href='https://www.mapbox.com/base/latest/base.css' rel='stylesheet'/>
-  <link href='additional.css' rel='stylesheet'/>
-  <!--<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.0/mapbox-gl.css' rel='stylesheet' />-->
-  <link rel="canonical" href="https://mansueto-institute.github.io/" >
+  <link href='index.css' rel='stylesheet'/>
   <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.0/mapbox-gl.js'></script>
   <script src="https://d3js.org/d3.v5.min.js"></script>
-  <!-- Load the `mapbox-gl-geocoder` plugin. -->
-<!-- <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
-<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css" type="text/css"> -->
-
-
-  <style>
-  body { margin:0; padding:0; }
-  #map { position:absolute; top:0; bottom:0; width:100%; }
-  @font-face {
-    font-family: 'GothamLight';
-    src: url('extra/gotham/GothamLight.otf') format('opentype');
-    font-weight: 300;
-  }
-  @font-face {
-    font-family: 'GothamMedium';
-    src: url('extra/gotham/GothamMedium.otf') format('opentype');
-    font-weight: 400;
-  }
-  @font-face {
-    font-family: 'GothamBold';
-    src: url('extra/gotham/GothamBold.otf') format('opentype');
-    font-weight: 700;
-  }
-  h2 { color:#36454F; font-size: 30px;}
-  h3 { color:#222B30;}
-  p { color:#222B30;}
-  @media only screen and (max-height: 650px) {
-    .hide-vert{ display:none!important;}
-  }
-  @media only screen and (max-width: 895px) {
-    .hide-horiz{ display:none!important;}
-  }
-  @media only screen and (max-height: 410px) {
-    .hide-flip{ display:none!important;}
-  }
-  .mapbox-wordmark {
-    position: absolute;
-    display: block;
-    height: 20px;
-    width: 65px;
-    bottom: 0;
-    right: 0;
-    text-indent: -9999px;
-    z-index: 99999;
-    overflow: hidden;
-    background-image: url(extra/images/mapbox.svg);
-    background-repeat: no-repeat;
-    background-position: 0 0;
-    background-size: 65px 13px;
-  }
-  .mapbox-attribution-container {
-    font-size:10px;
-    position: absolute;
-    margin: 0 10 5;
-  }
-  .text-overlay {
-    position: absolute;
-    top: 2;
-    width: 295px;
-    /* height: 220px; */
-    padding: 7px;
-    font-family: GothamMedium;
-    font-size: 13px;
-    line-height: 13px;
-    margin-top: 10px;
-    margin-left: 0px;
-    font-weight:normal;
-    overflow: auto;
-    border-radius: 3px;
-    background-color: #fff;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  }
-  .legend-overlay {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background: rgba(255, 255, 255, 0.8);
-    margin-right: 20px;
-    font-family: GothamMedium;
-    font-weight:normal;
-    font-size:11px;
-    overflow: auto;
-    border-radius: 3px;
-  }
-  #location-button, #video-button
-  {
-    display:inline;
-  }
-  .location-button.is-visible {
-    display: block;
-    position: absolute;
-    padding: 5px;
-  }
-  #legend {
-    padding: 6px 9px 6px 9px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    line-height: 13px;
-    margin-bottom: 20px;
-  }
-  .legend-key {
-    display: inline-block;
-    border-radius: 20%;
-    width: 10px;
-    height: 10px;
-    margin-right: 5px;
-  }
-  .button {
-    font-family: GothamBold;
-    vertical-align: middle;
-    line-height:15px;
-    margin:2px;
-    padding: 3px 6px 3px 6px;
-    cursor: pointer;
-    text-align: center;
-    display: inline-block;
-  }
-  .button.active,
-  .button:hover {
-    background-color:#0571b0;
-  }
-  .sidebar {
-    width: 100%;
-    background-color:transparent;
-  }
-  .legend label,
-  .legend span {
-    display:block;
-    float:left;
-    height:15px;
-    width:20%;
-    padding:2px;
-    text-align:center;
-    font-size:9px;
-    color:#808080;
-    margin-top: 3px;
-    }
-  .legend span{
-      width: 100%;
-      background: linear-gradient(to left, #fcfdbf, #fc8961, #b73779, #51127c, #000004);
-  }
-  legend{
-    width: 185px;
-    height: 92px;
-    background-color: rgba(255,255,255,0.6);
-    border: 1.5px solid white;
-    position: absolute;
-    user-select: none;
-    font-family: GothamLight;
-    line-height: 1.15;
-    font-size: 12.5px;
-    padding: 4px;
-  }
-  legend.hide{
-    display: none;
-  }
-  body{
-    overflow: hidden;
-  }
-  legend table{
-    width: 100%;
-  }
-  legend td, legend th{
-    width: 20%;
-    border: none;
-    text-align: center;
-    vertical-align: baseline;
-    padding: 0px;
-  }
-  legend tr:nth-child(2) td{
-    font-size: 10.5px;
-  }
-  legend th{
-    font-size: 14.5px;
-    font-family: GothamMedium;
-  }
-  legend td{
-    font-family: GothamLight;
-  }
-  legend th:first-child{
-    font-size: 24px;
-    width: 30%;
-    font-family: GothamBold;
-    color: white;
-    text-shadow: -0.5px -0.5px white,
-                 -0.5px 0.5px white,
-                 0.5px -0.5px white,
-                 0.5px 0.5px white;
-  }
-  legend tr:nth-child(3) td, legend tr:nth-child(4) td{
-    padding-top: 3px;
-    font-size: 10.5px;
-  }
-  legend td b{
-    font-family:  monospace;
-  }
-  legend td i{
-    font-family:  GothamMedium;
-  }
-  legend img{
-    height: 12px;
-    padding: 0 1px;
-  }
-</style>
-<!-- Google Analytics tag -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5XWDNG9JPD"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-5XWDNG9JPD');
-</script>
 </head>
-
 <body>
+
+  <!-- Sidebar box -->
   <div id="sidebar" class="pin-topleft z1">
-    <!-- Sidebar title-->
     <div class="sidebar flex-scroll scroll-styled pad2">
       <legend id='tooltip' class='hide-vert hide-horiz hide-flip'></legend>
-      <!-- <h2 class="hide-mobile" style="padding-bottom:0px;margin-bottom:0px;font-family:GothamBold;">Mapping Human Development</h2> -->
-      <h2 class="show-mobile" style="padding-bottom:0px;margin-bottom:0px;font-family:GothamBold;">Mapping<br />HDI</h2>
-      <!-- Explainer / video buttons-->
-      <!-- <div id="play-interactive" class="button fill-red dark hide-mobile hide-vert" style="margin-top:0px;">
-        <span id='location-button'> </span>
-      </div>
-      <div class="button fill-red dark hide-mobile hide-vert" style="margin-top:0px;">
-        <a style='color:#fff;' target='_blank' href='https://www.youtube.com/watch?v=9BOAcGRCYwo'>
-          <span id='video-button'>Play video</span>
-        </a>
-      </div> -->
-      <!-- Text popups-->
       <div class='text-overlay hide-mobile hide-vert'>
-        <p id='location-title' style="font-family:GothamBold; font-size:18px;line-height:17px;margin-top:5px; margin-bottom:8px;">Mapping Human Development</p>
-        <p id='location-description' style="font-family:GothamMedium;line-height:15px;font-size:12px;">
-          Human development index (HDI) is a statistic developed by the UN that composites life expectancy, education, and income. 
-        </p>
+      <p id='location-title'>Human Development of US Communities</p>
+      <p id='location-description'>
+      The Human Development Index (HDI) is the international gold standard of a person’s ability to lead a long, healthy life with access
+      to knowledge and a decent standard of living. It is a composite of life expectancy, education, and real income. <br/><br/>
+      We measured it in every US local community to compare them to international levels of development.
+      </p>
       </div>
-      <div class="hide-mobile hide-vert space-bottom0" style="padding-top:100px;"></div>
+
       <!-- Flyover buttons-->
+      <div class="hide-mobile hide-vert space-bottom0" style="padding-top:230px;"></div>
       <div class="projects hide-vert hide-horiz hide-flip">
-        <h3 class="space-bottom0" style="padding-top:0px;margin-bottom:0px;margin:3px;font-family:GothamBold;">Explore a city</h3>
-        <div id="newyorkcity" class="button fill-navy-dark dark" style="margin-top:2px;"><span>New York City</span></div><br />
-        <div id="losangeles" class="button fill-navy-dark dark" style="margin-top:2px;"><span>Los Angeles</span></div><br />
-        <div id="chicago" class="button fill-navy-dark dark" style="margin-top:2px;"><span>Chicago</span></div><br />
-        <div id="houston" class="button fill-navy-dark dark" style="margin-top:2px;"><span>Houston</span></div><br />
-        <div id="phoenix" class="button fill-navy-dark dark" style="margin-top:2px;"><span>Phoenix</span></div><br />
-        <div id="philadelphia" class="button fill-navy-dark dark" style="margin-top:2px;"><span>Philadelphia</span></div><br />
-        <div id="sanantonio" class="button fill-navy-dark dark" style="margin-top:2px;"><span>San Antonio</span></div><br />
-        <div id="sandiego" class="button fill-navy-dark dark" style="margin-top:2px;"><span>San Diego</span></div><br />
-        <div id="dallas" class="button fill-navy-dark dark" style="margin-top:2px;"><span>Dallas</span></div><br />
-        <div id="sanjose" class="button fill-navy-dark dark" style="margin-top:2px;"><span>San Jose</span></div><br />
-        <div id="austin" class="button fill-navy-dark dark" style="margin-top:2px;"><span>Austin</span></div><br />
-        <div id="jacksonville" class="button fill-navy-dark dark" style="margin-top:2px;"><span>Jacksonville</span></div><br />
-        <div id="fortworth" class="button fill-navy-dark dark" style="margin-top:2px;"><span>Fort Worth</span></div><br />
-        <div id="columbus" class="button fill-navy-dark dark" style="margin-top:2px;"><span>Columbus</span></div><br />
-        <div id="sanfrancisco" class="button fill-navy-dark dark" style="margin-top:2px;"><span>San Francisco</span></div><br />
-        <div id="charlotte" class="button fill-navy-dark dark" style="margin-top:2px;"><span>Charlotte</span></div><br />
-        <div id="indianapolis" class="button fill-navy-dark dark" style="margin-top:2px;"><span>Indianapolis</span></div><br />
-        <div id="seattle" class="button fill-navy-dark dark" style="margin-top:2px;"><span>Seattle</span></div><br />
-        <div id="denver" class="button fill-navy-dark dark" style="margin-top:2px;"><span>Denver</span></div><br />
-        <div id="washington" class="button fill-navy-dark dark" style="margin-top:2px;"><span>Washington</span></div><br />
+        <h3 class="space-bottom0">Explore a city</h3>
+        <div id="newyorkcity" class="button fill-navy-dark dark"><span>New York City</span></div><br />
+        <div id="losangeles" class="button fill-navy-dark dark"><span>Los Angeles</span></div><br />
+        <div id="chicago" class="button fill-navy-dark dark"><span>Chicago</span></div><br />
+        <div id="houston" class="button fill-navy-dark dark"><span>Houston</span></div><br />
+        <div id="phoenix" class="button fill-navy-dark dark"><span>Phoenix</span></div><br />
+        <div id="philadelphia" class="button fill-navy-dark dark"><span>Philadelphia</span></div><br />
+        <div id="sanantonio" class="button fill-navy-dark dark"><span>San Antonio</span></div><br />
+        <div id="sandiego" class="button fill-navy-dark dark"><span>San Diego</span></div><br />
+        <div id="dallas" class="button fill-navy-dark dark"><span>Dallas</span></div><br />
+        <div id="sanjose" class="button fill-navy-dark dark"><span>San Jose</span></div><br />
+        <div id="austin" class="button fill-navy-dark dark"><span>Austin</span></div><br />
+        <div id="jacksonville" class="button fill-navy-dark dark"><span>Jacksonville</span></div><br />
+        <div id="fortworth" class="button fill-navy-dark dark"><span>Fort Worth</span></div><br />
+        <div id="columbus" class="button fill-navy-dark dark"><span>Columbus</span></div><br />
+        <div id="sanfrancisco" class="button fill-navy-dark dark"><span>San Francisco</span></div><br />
+        <div id="charlotte" class="button fill-navy-dark dark"><span>Charlotte</span></div><br />
+        <div id="indianapolis" class="button fill-navy-dark dark"><span>Indianapolis</span></div><br />
+        <div id="seattle" class="button fill-navy-dark dark"><span>Seattle</span></div><br />
+        <div id="denver" class="button fill-navy-dark dark"><span>Denver</span></div><br />
+        <div id="washington" class="button fill-navy-dark dark"><span>Washington</span></div><br />
       </div>
     </div>
   </div>
 
-<div id="map"></div>
+  <div id="map"></div>
 
-<!-- Social media shares -->
-<!-- <a target='_blank' href='https://twitter.com/intent/tweet?text=Urban%20scientists%20at%20UChicago%20release%20global%20map%20of%20slums&url=https://millionneighborhoods.org'>
-  <div class ='pin-bottomleft z2 hide-flip' style='margin-bottom:7px; margin-left:20px; display:inline-block; vertical-align:middle; padding:0px 2px 2px 0px;'>
-    <img src="extra/images/twitter.svg" width="31px"/>
-  </div>
-</a>
-
-<a target='_blank' href="https://facebook.com/sharer.php?u=https://millionneighborhoods.org">
-  <div class ='pin-bottomleft z2 hide-flip' style='margin-bottom:7px; margin-left:55px; display:inline-block;vertical-align:middle; padding:0px 2px 2px 0px;'>
-    <img src="extra/images/facebook.svg" width="31px"/>
-  </div>
-</a> -->
-
-<!-- Code / methods links -->
-<!-- <a target='_blank' href='https://github.com/mansueto-institute/hdi-map'>
-  <div class='pin-bottomleft hide-mobile z2 hide-horiz hide-flip' style='margin-bottom:7px; margin-left:93px; display:inline-block; vertical-align:middle;padding:0px 2px 2px 0px;'>
-    <img src="extra/images/github.svg" width="31px"/>
-  </div>
-</a>
-
-<div class='pin-bottomleft hide-mobile z2 hide-horiz hide-flip' style='margin-bottom:8px; margin-left:130px; padding:0px; line-height:0px;'>
-  <p style="margin:0px; font-size:12px; font-family:GothamBold;padding:0px; line-height: 15px;">Methods:</p>
-  <a style="margin:0px; font-size:9px; font-family:GothamLight;padding:0px; line-height: 10px;" target='_blank' href='https://advances.sciencemag.org/content/4/8/eaar4644'>Brelsford, Martin, Hand, and Bettencourt (2018)</a>
-  <br style="content: " ";display: block; padding:0px;margin:0px;line-height: 0px;"/>
-  <a style="margin:0px; font-size:9px; font-family:GothamLight;padding:0px;line-height: 10px;" target='_blank' href= "https://www.researchgate.net/profile/Christa_Brelsford/publication/317550737_Optimal_reblocking_as_a_practical_tool_for_neighborhood_development/links/5c3565a1458515a4c717826f/Optimal-reblocking-as-a-practical-tool-for-neighborhood-development.pdf">Brelsford, Martin, and Bettencourt (2017)</a>
-</div> -->
-
-<!-- Branding / logos -->
-<a target='_blank' href='https://miurban.uchicago.edu'>
-  <div class ='pin-bottomleft hide-mobile' >
-    <img style="margin-top:11px; margin-bottom:7px; margin-left:20px;" src="extra/images/mansueto.png" width="280px" />
-  </div>
-</a>
-<div class ='pin-bottomleft hide-mobile' >
-  <!-- <a target='_blank' href='https://miurban.uchicago.edu'>
-    <h3  style="margin-bottom:10px; margin-left:215px; font-size:17px; font-family:GothamBold; line-height:13px;color:#800000;">Mansueto Institute for Urban Innovation</h3>  </a>
-     <a target='_blank' href='https://rcc.uchicago.edu'>
-      <h3  style="margin-bottom:9px; margin-left:215px; font-size:17px; font-family:GothamBold; line-height:13px;color:#800000;">Research Computing Center</h3> </a> -->
+  <!-- Branding / logos -->
+  <a target='_blank' href='https://miurban.uchicago.edu'>
+    <div class ='pin-bottomleft hide-mobile' >
+      <img id='mansueto-logo' src="extra/images/mansueto.png" width="280px" />
     </div>
+  </a>
 
-    <!-- Copyright -->
-    <div class="hide-mobile mapbox-attribution-container" style="top: 0;right: 0;">
-      <a target='_blank' href="https://www.uchicago.edu/">© The University of Chicago | </a>
-      <a target='_blank' href="http://www.openstreetmap.org/copyright">© OpenStreetMap | </a>
-      <a target='_blank' href="https://www.hotosm.org/"><strong>Find Mapathons | </strong></a>
-      <a target='_blank' href="https://www.mapbox.com/about/maps/">© Mapbox | </a>
-      <a target='_blank' href="https://apps.mapbox.com/feedback"><strong>Improve this map</strong></a>
-    </div>
+  <!-- Copyright/Attribution -->
+  <div class="hide-mobile mapbox-attribution-container">
+    <a target='_blank' href="https://www.uchicago.edu/">© The University of Chicago | </a>
+    <a target='_blank' href="https://github.com/mansueto-institute/hdi-map">Github | Built by R.E. Stern '23 |</a>
+    <a target='_blank' href="http://www.openstreetmap.org/copyright">© OpenStreetMap | </a>
+    <a target='_blank' href="https://www.hotosm.org/"><strong>Find Mapathons | </strong></a>
+    <a target='_blank' href="https://www.mapbox.com/about/maps/">© Mapbox | </a>
+    <a target='_blank' href="https://apps.mapbox.com/feedback"><strong>Improve this map</strong></a>
+  </div>
+  <a href="http://mapbox.com/about/maps" class='hide-mobile mapbox-wordmark' target="_blank">Mapbox</a>
+  <div class="show-mobile mapbox-attribution-container">
+    <a target='_blank' href="http://www.openstreetmap.org/copyright">© OpenStreetMap | </a>
+    <a target='_blank' href="https://www.mapbox.com/about/maps/">© Mapbox</a>
+  </div>
 
-    <a href="http://mapbox.com/about/maps" class='hide-mobile mapbox-wordmark' target="_blank">Mapbox</a>
+  <!-- Legend -->
+  <div class='legend-overlay legend' id='legend'>
+    Human Development Index <br>
+    <div id='histogram-placeholder'></div>
+    <span></span>
+    <label style='text-align: left;'>0.44</label>
+    <label>0.61</label>
+    <label>0.78</label>
+    <label style='text-align: center;'>0.95</label>
+    <label style='text-align: right;'>1.12</label>  
+  </div>
+</body>
 
-    <div class="show-mobile mapbox-attribution-container" style="bottom: 0;right: 0;">
-      <a target='_blank' href="http://www.openstreetmap.org/copyright">© OpenStreetMap | </a>
-      <a target='_blank' href="https://www.mapbox.com/about/maps/">© Mapbox</a>
-    </div>
+<!-- Javascript -->
+<script src='data.js'></script>
+<script src='index.js'></script>
+<!-- Core Firebase JS SDK (must be listed first) -->
+<script src="/__/firebase/6.6.2/firebase-app.js"></script>
+<!-- SDKs for Firebase products -->
+<script src="/__/firebase/init.js"></script>
 
-    <!-- Legend -->
-    <div class='legend-overlay legend' id='legend'>
-      Human Development Index <br>
-      <span></span>
-      <label>0.44</label>
-      <label>0.61</label>
-      <label>0.78</label>
-      <label>0.95</label>
-      <label>1.12</label>  
-    </div>
-
-    <!-- Javascript -->
-    <script src='index.js'></script>
-    <!-- Core Firebase JS SDK (must be listed first) -->
-    <script src="/__/firebase/6.6.2/firebase-app.js"></script>
-    <!-- SDKs for Firebase products -->
-    <script src="/__/firebase/init.js"></script>
-
-  </body>
-  </html>
+</html>
