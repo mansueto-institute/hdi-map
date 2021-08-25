@@ -2,7 +2,7 @@
 mapboxgl.accessToken = 'pk.eyJ1Ijoibm1hcmNoaTAiLCJhIjoiY2p6dTljeDhiMGRwcjNubnl2aXI0OThhYyJ9.4FdGkBJlOXMPRugyqiXrjg';
 window.map = new mapboxgl.Map({
   container: "map", // container id
-  style: "mapbox://styles/nmarchi0/ckqs7sp4c4m7y17q0get8doa8/draft",
+  style: "mapbox://styles/nmarchi0/ckqs7sp4c4m7y17q0get8doa8",
   center: [-98.57, 39.82],
   zoom: 4.25,
   maxZoom: 17.5,
@@ -107,7 +107,7 @@ const hdiToComp = hdi => {
 }
 
 const hdiToKey = hdi => {
-  return d3.scaleLinear().domain([0.44371750950813293,1.1131939888000488]).range([0,1])(hdi);
+  return d3.scaleLinear().domain([0.67,1.1131939888000488]).range([0,1])(hdi);
 }
 
 const keytoColor = c => {
@@ -124,7 +124,7 @@ const keytoColor = c => {
   ])(c)
 }
 
-const hditoBucket = x => `bucket${Math.floor((x-0.44371750950813293)/0.0334738)}`;
+const hditoBucket = x => `bucket${Math.floor((x-0.67)/0.0221597)}`;
 
 const hditoColor = hdi => keytoColor(hdiToKey(hdi));
 
