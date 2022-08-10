@@ -268,3 +268,39 @@ div.legend {
 .bar.selected{
     opacity: 1;
 }
+
+#mobile-crosshair {
+    display:none;
+}
+
+@media (max-width: 600px){
+    #mobile-crosshair {
+        display: initial;
+        position:fixed;
+        left:50%;
+        top:50%;
+        transform: translate(-50%,-50%);
+        z-index:5;
+        font-size:2em;
+        color:white;
+        font-weight: bold;
+    }
+    #tooltip, .legend-overlay {
+        position:fixed;
+        z-index:5;
+        background:white;
+        left:50% !important;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    }
+    #tooltip {
+        top:10% !important;
+        transform: translate(-50%,-50%);
+    }
+    legend.hide {
+        display: initial;
+    }
+    .legend-overlay {
+        bottom:0;
+        transform: translateX(-50%);
+    }
+}
