@@ -44,7 +44,7 @@ cities.forEach(x => {
 })
 
 
-// tooltip functions
+// tooltip functions  
 
 var tooltip = document.getElementById('tooltip');
 
@@ -71,7 +71,11 @@ const showtooltip = () => {
 
 function handleTooltipInfo(features){
   // check for null event and for features
-  if (!features?.length) return;
+  if (!features?.length) {
+    currentId = null;
+    tooltipActive = false;
+    return;
+  }
   const {
     properties 
   } = features[0]
@@ -136,7 +140,6 @@ function handleMobileTooltip() {
 map.on('move', handleMobileTooltip)
 map.on('mousemove', 'us-hdi', handleDesktopTooltip);
 // show events
-map.on('mouseleave', 'water', showtooltip);
 map.on('mouseenter', 'us-hdi', showtooltip);
 map.on('click', 'us-hdi', showtooltip);
 // hide events
