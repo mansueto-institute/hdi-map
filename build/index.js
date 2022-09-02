@@ -14,6 +14,8 @@ window.map = new mapboxgl.Map({
   ]
 });
 
+let currentId;
+let tooltipActive; 
 // Fly to location buttons
 function flyHandler(id, options) {
   var button = document.getElementById(id);
@@ -42,63 +44,109 @@ cities.forEach(x => {
 })
 
 
-// tooltip functions
+// tooltip functions  
 
 var tooltip = document.getElementById('tooltip');
 
 function fn(e) {
-
-      tooltip.style.left = e.pageX + 2 + 'px';
-      tooltip.style.top = e.pageY + 2 + 'px';
+  tooltip.style.left = e.pageX + 2 + 'px';
+  tooltip.style.top = e.pageY + 2 + 'px';
 }
 
-document.addEventListener('mousemove', fn, false);
 
 const hidetooltip = () => {
+  tooltipActive = false;
   tooltip.classList.add('hide');
   map.getCanvas().style.cursor = '';
   data.forEach(x => document.getElementById(x.bucket).classList.add('selected'));
 };
 
 const showtooltip = () => {
-  tooltip.classList.remove('hide');
-  map.getCanvas().style.cursor = 'crosshair';
+  if (!tooltipActive) {
+    tooltipActive = true;
+    tooltip.classList.remove('hide');
+    map.getCanvas().style.cursor = 'crosshair';
+  }
 };
 
-map.on('mouseenter', 'us-hdi', showtooltip);
-map.on('mouseleave', 'us-hdi', hidetooltip);
-map.on('mouseleave', 'water', showtooltip);
-map.on('mouseenter', 'water', hidetooltip);
-
-map.on('mousemove', 'us-hdi', function (e) {
-
+function handleTooltipInfo(features){
+  // check for null event and for features
+  if (!features?.length) {
+    currentId = null;
+    tooltipActive = false;
+    return;
+  }
+  const {
+    properties 
+  } = features[0]
+  // check for event on same geography
+  if (currentId === properties.geoid) return;
+  currentId = properties.geoid;
   tooltip.innerHTML = `
-  <table>
-    <tr>
-      <th style='color: ${hditoColor(e.features[0].properties.adjusted_hdi)}'>${Math.round(e.features[0].properties.adjusted_hdi*100)/100}</th>
-      <th>${Math.round(e.features[0].properties.adjusted_income_index*100)/100}</th>
-      <th>${Math.round(e.features[0].properties.le_index*100)/100}</th>
-      <th>${Math.round(e.features[0].properties.final_edu_index*100)/100}</th>
-    </tr>
-    <tr>
-      <td>HDI</td>
-      <td>Inc.</td>
-      <td>Life Exp.</td>
-      <td>Edu.</td>
-    </tr>
-    <tr>
-      <td colspan='4'>Compare ${hdiToComp(e.features[0].properties.adjusted_hdi)}</td>
-    </tr>
-    <tr>
-      <td colspan='4'>FIPS <b>${e.features[0].properties.geoid}</b></td>
-    </tr>
-  </table>
+    <table>
+      <tr>
+        <th style='color: ${hditoColor(properties.adjusted_hdi)}'>${Math.round(properties.adjusted_hdi*100)/100}</th>
+        <th>${Math.round(properties.adjusted_income_index*100)/100}</th>
+        <th>${Math.round(properties.le_index*100)/100}</th>
+        <th>${Math.round(properties.final_edu_index*100)/100}</th>
+      </tr>
+      <tr>
+        <td>HDI</td>
+        <td>Inc.</td>
+        <td>Life Exp.</td>
+        <td>Edu.</td>
+      </tr>
+      <tr>
+        <td colspan='4'>Compare ${hdiToComp(properties.adjusted_hdi)}</td>
+      </tr>
+      <tr>
+        <td colspan='4'>FIPS <b>${properties.geoid}</b></td>
+      </tr>
+    </table>
   `;
 
   data.forEach(x => document.getElementById(x.bucket).classList.remove('selected'));
-  document.getElementById(hditoBucket(e.features[0].properties.adjusted_hdi)).classList.add('selected');
-   
-});
+  document.getElementById(hditoBucket(properties.adjusted_hdi)).classList.add('selected');
+}
+
+const handleDesktopTooltip = (e) => {
+  if (window.innerWidth < 600){
+    return;
+  } else {
+    if (e?.features?.length) {
+      showtooltip();
+      handleTooltipInfo(e.features);
+    }
+  }
+}
+
+function handleMobileTooltip() {
+  if (window.innerWidth > 600){
+    return;
+  } else {
+    const {
+      lng,
+      lat
+    } = map.getCenter();
+    const features = map.queryRenderedFeatures(
+      [lng, lat],
+      {layers: ['us-hdi']}
+      );
+    handleTooltipInfo(features);
+  }
+}
+
+// information change events
+map.on('move', handleMobileTooltip)
+map.on('mousemove', 'us-hdi', handleDesktopTooltip);
+// show events
+map.on('mouseenter', 'us-hdi', showtooltip);
+map.on('click', 'us-hdi', showtooltip);
+// hide events
+map.on('mouseenter', 'water', hidetooltip);
+map.on('mouseleave', 'us-hdi', hidetooltip);
+// map.on('move', hidetooltip);
+document.addEventListener('mousemove', fn, false);
 
 // tooltip util functions
 const hdiToComp = hdi => {
